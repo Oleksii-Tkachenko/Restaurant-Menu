@@ -26,7 +26,8 @@ class MenuList extends Component {
     }
 
     render() {
-        const {menuItems, loading, error} = this.props
+        const {menuItems, loading, error, filter} = this.props
+        
         if (error) {
             return <Error/>
         }
@@ -37,7 +38,9 @@ class MenuList extends Component {
             <ul className="menu__list">
                 {
                     menuItems.map(menuItem => {
-                        return <MenuListItem key={menuItem.id} menuItem={menuItem}/>
+                        if (filter === 'all' || menuItem.category === filter) {
+                            return <MenuListItem key={menuItem.id} menuItem={menuItem}/>
+                        } 
                     })
                 }
             </ul>
@@ -49,7 +52,8 @@ const mapStateToProps = (state) => {
     return {
         menuItems: state.menu,
         loading: state.loading,
-        error: state.error
+        error: state.error,
+        filter: state.filter
     }
 }
 const mapDispatchToProps = {

@@ -1,7 +1,8 @@
 const initialState = {
     menu: [],
     loading: true,
-    error: false
+    error: false,
+    filter: 'all'
 }
 
 const reducer = (state = initialState, action) => {
@@ -11,19 +12,29 @@ const reducer = (state = initialState, action) => {
             return {
                 menu: action.payload,
                 loading: false,
-                error: false
+                error: false,
+                filter: state.filter
+            }
+        case 'MENU_FILTER':
+            return {
+                menu: state.menu,
+                loading: state.loading,
+                error: false,
+                filter: action.filter
             }
         case 'MENU_REQUESTED':
             return {
                 menu: state.menu,
                 loading: true,
-                error: false
+                error: false,
+                filter: state.filter
             }
         case 'MENU_ERROR':
             return {
                 menu: state.menu,
                 loading: state.loading,
-                error: true
+                error: true,
+                filter: state.filter
             }
         default:
             return state;

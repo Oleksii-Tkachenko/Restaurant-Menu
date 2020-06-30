@@ -17,8 +17,16 @@ const menuError = () => {
     }
 }
 
+const menuFilter = (filter) => {
+    return {
+        type: 'MENU_FILTER',
+        filter: filter
+    }
+}
+
 export {
     menuLoaded,
     menuRequested,
-    menuError
+    menuError,
+    menuFilter
 };
