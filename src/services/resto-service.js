@@ -4,7 +4,8 @@ export default class RestoService{
     getMenuItems = async () => {
         const response = await fetch(this.url);
         if (!response.ok){
-            throw new Error('Server Error');
+            const error = 'server error';
+            return error
         }
         const result = await response.json();
         return result;

@@ -10,7 +10,7 @@ const App = () => {
         <div style={{background: `url(${Background}) center center/cover no-repeat`}} className="app">
             <AppHeader total={50}/>
             <Switch>
-                <Route path='/' exact component={MainPage}/>
+            <Route path='/' exact component={MainPage}/>
                 <Route path='/total' exact component={CartPage}/>
                 <Route exact component={MainPage}/>
             </Switch>
