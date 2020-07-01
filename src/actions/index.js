@@ -11,6 +11,20 @@ const menuRequested = () => {
     }
 }
 
+const addedToCart = (id) => {
+    return {
+        type: 'ITEM_ADD_TO_CART',
+        payload: id
+    }
+}
+
+const deleteFromCart = (id) => {
+    return {
+        type: 'ITEM_REMOVE_FROM_CART',
+        payload: id
+    }
+}
+
 const menuError = () => {
     return {
         type: 'MENU_ERROR'
@@ -28,5 +42,7 @@ export {
     menuLoaded,
     menuRequested,
     menuError,
-    menuFilter
+    menuFilter,
+    addedToCart,
+    deleteFromCart
 };

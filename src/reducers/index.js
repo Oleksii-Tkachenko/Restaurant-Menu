@@ -2,7 +2,8 @@ const initialState = {
     menu: [],
     loading: true,
     error: false,
-    filter: 'all'
+    filter: 'all',
+    items: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,31 +11,53 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'MENU_LOADED':
             return {
+                ...state,
                 menu: action.payload,
                 loading: false,
-                error: false,
-                filter: state.filter
+                error: false
             }
         case 'MENU_FILTER':
             return {
-                menu: state.menu,
-                loading: state.loading,
+                ...state,
                 error: false,
                 filter: action.filter
             }
         case 'MENU_REQUESTED':
             return {
-                menu: state.menu,
+                ...state,
                 loading: true,
-                error: false,
-                filter: state.filter
+                error: false
             }
         case 'MENU_ERROR':
             return {
-                menu: state.menu,
-                loading: state.loading,
-                error: true,
-                filter: state.filter
+                ...state,
+                error: true
+            }
+        case 'ITEM_ADD_TO_CART':
+            const id = action.payload;
+            const item = state.menu.find(item => item.id === id);
+            const newItem = {
+                title: item.title,
+                price: item.price,
+                url: item.url,
+                id: item.id
+            }
+            return {
+                ...state,
+                items: [
+                    ...state.items,
+                    newItem
+                ]
+            }
+        case 'ITEM_REMOVE_FROM_CART':
+            const idx = action.payload;
+            const itemIndex = state.items.findIndex(item => item.id === idx);
+            return {
+                ...state,
+                items: [
+                    ...state.items.slice(0, itemIndex),
+                    ...state.items.slice(itemIndex + 1)
+                ]
             }
         default:
             return state;
