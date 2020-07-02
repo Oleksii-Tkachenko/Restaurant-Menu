@@ -3,11 +3,11 @@ const initialState = {
     loading: true,
     error: false,
     filter: 'all',
-    items: []
+    items: [],
+    totalPrice: 0
 }
 
 const reducer = (state = initialState, action) => {
-    console.log(state);
     switch (action.type) {
         case 'MENU_LOADED':
             return {
@@ -34,30 +34,43 @@ const reducer = (state = initialState, action) => {
                 error: true
             }
         case 'ITEM_ADD_TO_CART':
+            const newItems = state.items;
             const id = action.payload;
             const item = state.menu.find(item => item.id === id);
+            const isAvailable = state.items.find(el => el.id === item.id )
             const newItem = {
                 title: item.title,
                 price: item.price,
                 url: item.url,
-                id: item.id
+                id: item.id,
+                qty: 1
+                }
+            
+            if (isAvailable) {
+                newItems.map(elem => {
+                    if (elem.id === isAvailable.id) {
+                        elem.qty++;
+                    }
+                })
+            } else {
+                newItems.push(newItem)
             }
             return {
                 ...state,
-                items: [
-                    ...state.items,
-                    newItem
-                ]
+                totalPrice: state.totalPrice + newItem.price,
+                items: newItems
             }
         case 'ITEM_REMOVE_FROM_CART':
             const idx = action.payload;
             const itemIndex = state.items.findIndex(item => item.id === idx);
+            const price = state.items[itemIndex]['price'] * state.items[itemIndex]['qty'];
             return {
                 ...state,
                 items: [
                     ...state.items.slice(0, itemIndex),
                     ...state.items.slice(itemIndex + 1)
-                ]
+                ],
+                totalPrice: state.totalPrice - price
             }
         default:
             return state;

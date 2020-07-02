@@ -7,12 +7,16 @@ import meat from './meat.svg';
 import {Link} from 'react-router-dom';
 import './app-header.scss';
 import store from '../../store';
+import {connect} from 'react-redux';
 
 
-const AppHeader = ({total}) => {
+const AppHeader = ({totalPrice}) => {
     const onFilterMenu = (category) => {
         store.dispatch(menuFilter(category))
     }
+    
+    console.log(totalPrice)
+    
     return (
         <header className="header">
             <div className="header__icons">
@@ -26,7 +30,7 @@ const AppHeader = ({total}) => {
                 </Link>
                 <Link className="header__link" to="/total/">
                     <img className="header__cart" src={cartIcon} alt="cart"></img>
-                    Total: {total} $
+                    Total: {totalPrice} $
                 </Link>
             </div>
             
@@ -34,6 +38,11 @@ const AppHeader = ({total}) => {
     )
 };
 
+const mapStateToProps = ({totalPrice}) => {
+    return {
+        totalPrice
+    }
+}
 
 
-export default AppHeader;
+export default connect(mapStateToProps)(AppHeader);
