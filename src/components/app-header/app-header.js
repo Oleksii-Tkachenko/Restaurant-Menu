@@ -15,8 +15,6 @@ const AppHeader = ({totalPrice}) => {
         store.dispatch(menuFilter(category))
     }
     
-    console.log(totalPrice)
-    
     return (
         <header className="header">
             <div className="header__icons">

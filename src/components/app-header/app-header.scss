@@ -5,8 +5,24 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
+    @media (max-width: 440px) {
+        padding: 0 20px;
+    }
+    @media (max-width: 370px) {
+        padding: 20px;
+        height: 100px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        // justify-content: flex-start;
+        align-items: flex-start;
+    }
     &__links {
         display: flex;
+        @media (max-width: 370px) {
+            order: 1;
+            width: 100%;
+            justify-content: space-between;
+        }
     }
     &__link {
         display: flex;
@@ -14,6 +30,19 @@
         font-size: 18px;
         color: #fff;
         text-decoration: none;
+        @media (max-width: 550px) {
+            margin-right: 20px;
+        }
+    }
+    &__link:first-child {
+        @media (max-width: 370px) {
+            text-transform: uppercase;
+        }
+    }
+    &__link:nth-child(2) {
+        @media (max-width: 550px) {
+            margin-right: 0px;
+        }
     }
     &__cart {
         width: 20px;
@@ -22,6 +51,9 @@
     &__icons {
         display: flex;
         align-items: center;
+        @media (max-width: 370px) {
+            order: 2;
+        }
         .btn {
             margin-left: 20px;
             width: 40px;
@@ -31,12 +63,29 @@
             &:hover {
                 cursor: pointer;
             }
+            @media (max-width: 550px) {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .btn:first-child {
+            @media (max-width: 550px) {
+                margin-left: 0;
+            }
         }
     }
     &__salad {
         width: 35px;
+        @media (max-width: 550px) {
+            width: 30px;
+            height: 30px;
+        }
     }
     &__meat {
         width: 35px;
+        @media (max-width: 550px) {
+            width: 30px;
+            height: 30px;
+        }
     }
 }

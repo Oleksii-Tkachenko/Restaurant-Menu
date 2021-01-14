@@ -1,5 +1,7 @@
 export default class RestoService{
+    // for development mode
     url = 'http://localhost:3000/menu/';
+    // url = 'http://www.tkaproj.ho.ua/db.json'
 
     getMenuItems = async () => {
         const response = await fetch(this.url);
@@ -9,5 +11,6 @@ export default class RestoService{
         }
         const result = await response.json();
         return result;
+        // return result.menu;
     }
 }

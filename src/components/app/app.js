@@ -1,9 +1,12 @@
 import React from 'react';
+import './app.scss';
 import {MainPage, CartPage} from '../pages';
 import AppHeader from '../app-header';
 import {Route, Switch} from 'react-router-dom';
 
 import Background from './food-bg.jpg';
+
+console.log(Background)
 
 const App = () => {
     return (

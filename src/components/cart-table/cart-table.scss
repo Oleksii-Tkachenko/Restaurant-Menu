@@ -2,6 +2,12 @@
     padding-top: 120px;
     padding-bottom: 50px;
     min-height: 100vh;
+    @media (max-width: 1500px) {
+        padding-top: 100px;
+    }
+    @media (max-width: 1500px) {
+        padding-top: 50px;
+    }
     &__title {
         font-size: 36px;
         color: #fff;
@@ -11,6 +17,15 @@
     &__list {
         width: 60%;
         margin: 0 auto;
+        @media (max-width: 1500px) {
+            width: 80%;
+        }
+        @media (max-width: 540px) {
+            width: 60%;
+        }
+        @media (max-width: 400px) {
+            width: 90%;
+        }
     }
     &__item {
         position: relative;
@@ -21,11 +36,33 @@
         border: 1px solid rgba(256,256,256, .2);
         background-color: rgba(0,0,0,.7);
         box-shadow: 0 0 20px rgba(256,256,256, .1);
+        @media (max-width: 740px) {
+            margin-top: 20px;
+        }
+        @media (max-width: 540px) {
+            flex-direction: column;
+            border-radius: 5px
+        }
         &-title, &-price  {
             width: 250px;
             text-align: center;
             color: #fff;
             font-size: 24px;
+            @media (max-width: 1000px) {
+                width: auto;
+            }
+            @media (max-width: 700px) {
+                font-size: 22px;
+            }
+        }
+        &-price {
+            @media (max-width: 1000px) {
+                margin-right: 20px;
+            }
+            @media (max-width: 540px) {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
         }
         span {
             font-size: 25px;
@@ -36,6 +73,22 @@
             height: 125px;
             width: 250px;
             object-fit: cover;
+            @media (max-width: 740px) {
+                width: 200px;
+            }
+            @media (max-width: 700px) {
+                height: 100px;
+                width: 170px;
+            }
+            @media (max-width: 600px) {
+                height: 80px;
+                width: 150px;
+            }
+            @media (max-width: 540px) {
+                height: 150px;
+                width: 100%;
+                margin-bottom: 10px;
+            }
         }
     }
     &__close {
@@ -50,5 +103,10 @@
         border-radius: 100%;
         border: 1px solid #fff;
         cursor: pointer;
+        @media (max-width: 540px) {
+            width: 40px;
+            height: 40px;
+            font-size: 30px;
+        }
     }
 }
