@@ -6,8 +6,6 @@ import {Route, Switch} from 'react-router-dom';
 
 import Background from './food-bg.jpg';
 
-console.log(Background)
-
 const App = () => {
     return (
         <div style={{background: `url(${Background}) center center/cover no-repeat`}} className="app">

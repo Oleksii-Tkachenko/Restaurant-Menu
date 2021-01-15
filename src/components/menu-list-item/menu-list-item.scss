@@ -61,6 +61,7 @@
         font-size: 18px;
         font-weight: 300;
         margin-bottom: 10px;
+        text-align: center;
         span {
             font-weight: 700;
         }
@@ -83,6 +84,7 @@
         color: #fff;
         font-size: 16px;
         margin: 0 auto;
+        display: block;
         cursor: pointer;
         @media (max-width: 500px) {
             width: 100%;

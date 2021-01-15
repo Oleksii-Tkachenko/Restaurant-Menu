@@ -34,6 +34,34 @@
 			"url": "https://i.cbc.ca/1.4491288.1516208229!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/cowboysteak.jpg",
 			"category": "meat",
 			"id": 5
+		},
+		{
+			"title": "Mediterranean Salad",
+			"price": 7,
+			"url": "https://recipes.heart.org/-/media/aha/recipe/recipe-images/mediterranean-salad.jpg?h=636&la=en&mw=890&w=890&hash=8A95325FBD7890C243CFD1124CFBA7FA090E181B",
+			"category": "salads",
+			"id": 6
+		},
+		{
+			"title": "Mozzarella",
+			"price": 14,
+			"url": "https://italy4.me/wp-content/uploads/2016/10/Mozarella-pizza_cr.jpg",
+			"category": "pizza",
+			"id": 7
+		},
+		{
+			"title": "Chicken Drumsticks",
+			"price": 10,
+			"url": "https://hips.hearstapps.com/hmg-prod/images/delish-190808-baked-drumsticks-0217-landscape-pf-1567089281.jpg",
+			"category": "meat",
+			"id": 8
+		},
+		{
+			"title": "Chicken Puttanesca",
+			"price": 15,
+			"url": "https://assets.bonappetit.com/photos/5de7f221cd39730009dc0d22/2:1/w_5249,h_2624,c_limit/HLY-Chicken-Puttanesca-16x9.jpg",
+			"category": "meat",
+			"id": 9
 		}
 	]
 }
